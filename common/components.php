@@ -10,9 +10,10 @@ function input($placeholder, $name,$value,$type="text"){
 
 function button($text,$id,$class,$name){
     $btn = "
-         <button name='$name' class='$class' value=' id='$id' >$text </button>
+         <button name='$name' class='$class' value='' id='$id' > $text </button>
        ";
  
+       echo($name);
      echo($btn);
  }
  

@@ -1,7 +1,7 @@
 <?php
 require_once('./common/components.php') ;
-require_once('./common/database.php') ;
-CreateDb();
+require_once('./common/operation.php') ;
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -10,18 +10,18 @@ CreateDb();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script src="https://kit.fontawesome.com/yourcode.js"></script>
+    <!-- <script src="https://kit.fontawesome.com/yourcode.js"></script> -->
 </head>
 <body>
     <div class="container ">
         <div class="d-flex justify-content-center mt-5">
-        <form class="w-50">
+        <form action="" method="post" class="w-50" >
             <div class="mt-4">
             <?php input("Name","name","");
             ?>
             </div> 
             <div class="mt-4">
-            <?php input("DOB","dob","","dob");
+            <?php input("DOB","dob","","date");
             ?>
             </div> 
             <div class="mt-4">
@@ -33,31 +33,33 @@ CreateDb();
             ?>
             </div> 
             <div class="mt-4">
-            <?php input("Phone-No","Phone-No","");
+            <?php input("Phone-No","phone","");
             ?>
             </div>  
             <div class="mt-4">
-            <?php input("Email-d","Email-d","");
+            <?php input("Email-d","email","");
             ?>
             </div> 
             <div class="mt-4">
-            <?php input("Father Name","Father Name","");
+            <?php input("Father Name","fathername","");
             ?>
             </div> 
             <div class="mt-4">
-            <?php input("Mother Name","Mother Name","");
+            <?php input("Mother Name","mothername","");
             ?>
             </div> 
             <div class="mt-4">
-            <?php input("Address","Address","");
+            <?php input("Address","address","");
             ?>
             </div> 
             <div class="mt-4">
-            <?php button("Create","create","btn btn-success","name");
+            <?php button("Create","create","btn btn-success","create");
             ?>
-            <?php button("Edit  ","create","btn btn-info","name");
+            <?php button("Read","read","btn btn-info","read");
             ?>
-            <?php button("Delete","create","btn btn-danger","name");
+            <?php button("Edit  ","edit","btn btn-secondary","edit");
+            ?>
+            <?php button("Delete","delete","btn btn-danger","delete");
             ?>
             </div> 
 
@@ -70,23 +72,39 @@ CreateDb();
         <th scope="col">Name</th>
         <th scope="col">Father Name</th>
         <th scope="col">Mother Name</th>
-        <th scope="col">Email-Id</th>
+        <th scope="col">DOB</th>
         <th scope="col">Experience</th>
         <th scope="col">Qualification</th>
+        <th scope="col">Email-Id</th>
         <th scope="col">Phone No</th>
         <th scope="col">Edit</th>
         </tr>
     </thead>
     <tbody>
-        <tr>
-        <th scope="col">Name</th>
-        <th scope="col">Father Name</th>
-        <th scope="col">Mother Name</th>
-        <th scope="col">Email-Id</th>
-        <th scope="col">Experience</th>
-        <th scope="col">Qualification</th>
-        <th scope="col">Phone No</th>
-        </tr>
+    <?php    
+        if(isset($_POST['read'])){
+            $result=getdata();
+
+            if($result){
+                while($row=mysqli_fetch_assoc($result)){?>
+                <tr>
+                    <td><?php echo $row['name'];?></td>
+                    <td><?php echo $row['fathername'];?></td>
+                    <td><?php echo $row['mothername'];?></td>
+                    <td><?php echo $row['dob'];?></td>
+                    <td><?php echo $row['experience'];?></td>
+                    <td><?php echo $row['qualification'];?></td>
+                    <td><?php echo $row['email'];?></td>
+                    <td><?php echo $row['phone'];?></td>
+                </tr>
+
+    <?php 
+              }
+            }
+        }
+
+
+    ?>
     </tbody>
 </table>
     </div>

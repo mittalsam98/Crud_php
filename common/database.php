@@ -11,7 +11,6 @@ if(!$conn){
     die('Could not connect: ' . mysqli_connect_error());
 }
 
-echo("Database connected");
 
 $sql="CREATE DATABASE IF NOT EXISTS $dbname";
 if(mysqli_query($conn,$sql)){
@@ -29,8 +28,8 @@ if(mysqli_query($conn,$sql)){
      );
     ";
 
-    if(mysqli_query($conn,$sql)){
-        echo "Table created ";
+    if(mysqli_query($conn,$sql )){
+       return $conn;
     }
     else{
         // 
