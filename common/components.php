@@ -13,7 +13,6 @@ function button($text,$id,$class,$name){
          <button name='$name' class='$class' value='' id='$id' > $text </button>
        ";
  
-       echo($name);
      echo($btn);
  }
  
