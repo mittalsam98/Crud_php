@@ -27,11 +27,13 @@ function createdata(){
 
             if(mysqli_query($GLOBALS['con'],$sql)){
                 echo  "Data inserted  successfully";
-                die("Data inserted");
+                header('Location: index.php');
+               
             }
             else {
                 echo "Error occcured in insertion";
             }
+
     }else{
         echo "insert record pls";
     }
@@ -57,4 +59,9 @@ function getdata(){
     if(mysqli_num_rows($result)>0){
         return $result;
     }
+}
+
+
+function updatedate(){
+    
 }

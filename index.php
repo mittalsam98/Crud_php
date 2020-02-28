@@ -15,7 +15,7 @@ require_once('./common/operation.php') ;
 <body>
     <div class="container ">
         <div class="d-flex justify-content-center mt-5">
-        <form action="" method="post" class="w-50" >
+        <form action="." method="post" class="w-50" >
             <div class="mt-4">
             <?php input("Name","name","");
             ?>
@@ -57,8 +57,8 @@ require_once('./common/operation.php') ;
             ?>
             <?php button("Read","read","btn btn-info","read");
             ?>
-            <?php button("Edit  ","edit","btn btn-secondary","edit");
-            ?>
+            <!-- <?php button("Edit  ","edit","btn btn-secondary","edit");
+            ?> -->
             <?php button("Delete","delete","btn btn-danger","delete");
             ?>
             </div> 
@@ -96,6 +96,10 @@ require_once('./common/operation.php') ;
                     <td><?php echo $row['qualification'];?></td>
                     <td><?php echo $row['email'];?></td>
                     <td><?php echo $row['phone'];?></td>
+                    <td><form action="" method="get">
+                        <?php button("Edit  ","edit","btn btn-secondary","edit");
+                        ?> 
+                        </form></td>
                 </tr>
 
     <?php 

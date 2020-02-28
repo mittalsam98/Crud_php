@@ -17,6 +17,7 @@ if(mysqli_query($conn,$sql)){
     $conn=mysqli_connect($server,$username,$password,$dbname);
     $sql ="
     CREATE TABLE IF NOT EXISTS info(
+        id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
         name VARCHAR(20) NOT NULL,
         fathername VARCHAR(20) NOT NULL,
         mothername VARCHAR(20) NOT NULL,
