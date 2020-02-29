@@ -57,8 +57,6 @@ require_once('./common/operation.php') ;
             ?>
             <?php button("Read","read","btn btn-info","read");
             ?>
-            <!-- <?php button("Edit  ","edit","btn btn-secondary","edit");
-            ?> -->
             <?php button("Delete","delete","btn btn-danger","delete");
             ?>
             </div> 
@@ -86,7 +84,8 @@ require_once('./common/operation.php') ;
             $result=getdata();
 
             if($result){
-                while($row=mysqli_fetch_assoc($result)){?>
+                while($row=mysqli_fetch_assoc($result)){
+    ?>
                 <tr>
                     <td><?php echo $row['name'];?></td>
                     <td><?php echo $row['fathername'];?></td>
@@ -96,17 +95,15 @@ require_once('./common/operation.php') ;
                     <td><?php echo $row['qualification'];?></td>
                     <td><?php echo $row['email'];?></td>
                     <td><?php echo $row['phone'];?></td>
-                    <td><form action="" method="get">
-                        <?php button("Edit  ","edit","btn btn-secondary","edit");
-                        ?> 
-                        </form></td>
+                    <td>
+                         <a href="edit.php/?id=<?php echo $row['id']?>"> <?php button("Edit  ","","btn btn-secondary","")?></a>  
+                 </td>
                 </tr>
 
     <?php 
               }
             }
         }
-
 
     ?>
     </tbody>
